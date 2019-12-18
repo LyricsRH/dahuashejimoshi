@@ -1,4 +1,4 @@
-package 工厂模式;
+package 工厂模式和策略;
 
 public class Context {
     Operation operation=null;
@@ -9,6 +9,7 @@ public class Context {
         }
     }
     public int GetResult(int a,int b){
+        //具体算法与客户端隔离
         return operation.result(a,b);
     }
 }

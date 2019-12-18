@@ -1,4 +1,4 @@
-package 工厂模式;
+package 工厂模式和策略;
 
 public class client {
 
