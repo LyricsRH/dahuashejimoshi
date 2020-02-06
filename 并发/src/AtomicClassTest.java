@@ -2,13 +2,18 @@ import org.junit.Test;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
+import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class AtomicClassTest {
     public static void main(String[] args) {
        // testAtomicInteger();
        // atomicIntegerArrayTest();
-        testReference();
+       // testReference();
+        AtomicIntegerFieldUpdater<Person> age = AtomicIntegerFieldUpdater.newUpdater(Person.class, "age");
+        Person person=new Person("aa",10);
+        System.out.println(age.getAndIncrement(person));
+        System.out.println(age.get(person));
     }
 
     public static void testAtomicInteger(){
@@ -58,7 +63,7 @@ public class AtomicClassTest {
 
 class Person {
     private String name;
-    private int age;
+    volatile int age;
 
     public Person(String name, int age) {
         super();
